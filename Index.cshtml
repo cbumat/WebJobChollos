@@ -1,0 +1,24 @@
+﻿@using MvcChollos.Models
+@model List<Chollo>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Últimos chollos</h2>
+<div class="row">
+    @foreach (Chollo cho in Model)
+    {
+        <div class="col-md-6">
+            <h2 style="color: blue">@cho.IdChollo | @cho.Titular</h2>
+            <h3>@cho.Categoria</h3>
+            <h3>@cho.Fecha</h3>
+            <p>
+                <a href="@cho.Enlace" target="_blank">
+                    @cho.Enlace
+                </a>
+            </p>
+            <p>@Html.Raw(cho.Descripcion)</p>
+        </div>
+        <hr />
+    }
+</div>
